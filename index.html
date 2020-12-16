@@ -13,14 +13,13 @@
 
             <div>
                 <input type="text" v-model="message" @keydown.13="newFrase">
-                <p>{{message}}</p>
                 <button @click="newFrase">Add</button>
             </div>
             <div>
                 <h3>Todo List</h3>
                 <ul>
                     <li v-if="(frasi.length === 0) ? message2 : '' ">{{message2}}</li>
-                    <li v-for="(frase,index) in frasi">{{frase}} <i @click="removeFrase" class="fas fa-times-circle"></i> </li>
+                    <li v-for="(frase,index) in frasi">{{frase}} <i @click="removeFrase(index)" class="fas fa-times-circle"></i> </li>
                 </ul>
             </div>
 

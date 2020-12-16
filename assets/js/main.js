@@ -28,8 +28,9 @@ let root = new Vue ({
                 this.frasi.push(this.message);                
             }
         },
-        removeFrase(){
-            console.log(this);
+        removeFrase(index){
+            console.log(index);
+            Vue.delete(this.frasi, index);
         }
     },
     created(){
