@@ -12,7 +12,7 @@
         <div id="root">
 
             <div>
-                <input type="text" v-model="message">
+                <input type="text" v-model="message" @keydown.13="newFrase">
                 <p>{{message}}</p>
                 <button @click="newFrase">Add</button>
             </div>
