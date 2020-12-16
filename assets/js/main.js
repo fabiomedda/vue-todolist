@@ -19,13 +19,17 @@ let root = new Vue ({
             "Do else",
             "Do something else"
         ],
-        message: ""
+        message: "",
+        message2: "Nulla da fare"
     },
     methods: {
         newFrase(){
             if (this.message.length > 3) {
                 this.frasi.push(this.message);                
             }
+        },
+        removeFrase(){
+            console.log(this);
         }
     },
     created(){
