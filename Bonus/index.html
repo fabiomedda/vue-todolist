@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue todolist</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Langar&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+
+        <div id="root">
+
+            <div>
+                <img :src="logo" alt="">
+            </div>
+
+            <div id="input">
+                <input type="text" v-model="message" @keydown.13="newFrase">
+                <button @click="newFrase">Add</button>
+            </div>
+
+            <h3>Todo List</h3>
+            <div id="list">
+
+                <!-- Task da completare -->
+                <div>
+                    <h4>Task da completare</h4>
+                    <ul>
+                        <li v-if="(frasi.length === 0) ? message2 : '' ">{{message2}}</li>
+                        <li v-for="(frase,index) in frasi">{{frase}} <i @click="completeFrase(index)" class="fas fa-check-circle"></i> </li>
+                    </ul>
+                </div>
+                <!-- //Task da completare -->
+
+                <!-- Task completata -->
+                <div>
+                    <h4>Task completate</h4>
+                    <ul>
+                        <li v-for="(frase,index) in frasiCompletate">{{frase}} <i @click="deletedFrase(index)" class="fas fa-times-circle"></i> </li>
+                    </ul>
+                </div>
+                <!-- //Task completata -->
+
+                <!-- recycleBin -->
+                <div>
+                    <div id="cestino">
+                        <h4>Cestino</h4><i @click="recycleBinF" class="fas fa-trash-alt"></i>
+                    </div>
+                    <ul>
+                        <li v-for="(frase,index) in recycleBin">{{frase}} <span><i @click="restoreFrase(index)" class="fas fa-trash-restore"></i> <i @click="removeFrase(index)" class="fas fa-times-circle"></i></span></li>
+                    </ul>
+                </div>
+                <!-- //recycleBin -->
+
+            </div>
+
+        </div>
+
+
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
