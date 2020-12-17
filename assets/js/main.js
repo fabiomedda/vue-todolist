@@ -20,20 +20,18 @@ let root = new Vue ({
             "Do something else"
         ],
         message: "",
-        message2: "Nulla da fare"
+        message2: "Nulla da fare",
+        logo: "assets/img/logo.png"
     },
     methods: {
         newFrase(){
             if (this.message.length > 3) {
-                this.frasi.push(this.message);                
+                this.frasi.unshift(this.message);
             }
         },
         removeFrase(index){
             console.log(index);
             Vue.delete(this.frasi, index);
         }
-    },
-    created(){
-
     }
 });
